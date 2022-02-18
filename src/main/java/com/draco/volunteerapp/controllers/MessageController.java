@@ -1,4 +1,4 @@
-package com.draco.volunteerapp.controller;
+package com.draco.volunteerapp.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
