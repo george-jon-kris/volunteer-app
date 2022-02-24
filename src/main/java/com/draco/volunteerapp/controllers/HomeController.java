@@ -17,7 +17,7 @@ class HomeController {
 
     private UserRepository usersDao;
 
-    public HomeController(SpotRepository spotDao, EventRepository eventsDao, UserRepository usersDao) {
+    public HomeController(UserRepository usersDao) {
 
         this.usersDao = usersDao;
     }
@@ -35,15 +35,11 @@ class HomeController {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             User userInDb = usersDao.getById(user.getId());
             model.addAttribute("userId", user.getId());
-            model.addAttribute("userSpots", spotsDao.findAllByUser(user));
-            model.addAttribute("userSavedSpots", spotsDao.findAllBySaved(user));
+
         }
 
     }
 
-    @GetMapping("/aboutus")
-    public String getAboutUsPage() {
-        return "about-us";
-    }
+
 
 }
